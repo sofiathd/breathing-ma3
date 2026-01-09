@@ -1,5 +1,5 @@
 import numpy as np
-from linear import regression_metrics, fit_linear_calibration
+from src.vt_calib.linear import regression_metrics, fit_linear_calibration
 
 def blocked_kfold_indices(n, k=5):
     """

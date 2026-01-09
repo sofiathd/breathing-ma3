@@ -189,8 +189,7 @@ def main():
     if len(keep) < 10:
         print("WARNING: very few frames remain. Thresholds may be too strict or data is inconsistent.")
 
-    # 5) stereoCalibrate cam0 with each cam (FIX_INTRINSIC)
-    print("\n--- Estimating extrinsics relative to cam0 using stereoCalibrate (FIX_INTRINSIC) ---")
+    print("\n--- Estimating extrinsics relative to cam0 using stereoCalibrate with FIX_INTRINSIC flag ---")
     extrinsics = []
     extrinsics.append({"R": np.eye(3), "T": np.zeros((3,1))})
 

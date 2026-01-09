@@ -1,3 +1,4 @@
+import numpy as np
 import cv2
 
 def apply_clahe(image_bgr):

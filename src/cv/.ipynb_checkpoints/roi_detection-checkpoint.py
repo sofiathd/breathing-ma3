@@ -3,9 +3,11 @@ from PIL import Image
 import openpifpaf
 import cv2
 import torchvision.transforms as tvT
+import numpy as np
 import torch
+from src.models import *
 
-def hardcoded_roi(camera):
+def hardcoded_roi(camera, region):
     if camera=="gray":
         if region=="abdomen":
             return (1200, 2000, 1100, 800)
@@ -36,14 +38,14 @@ def detect_ROI(image_path, camera, region="chest", image_type='RGB', conf_thr=0.
     if region == "all":
         return (0, 0, W, H)
     elif predictions is None or len(predictions) == 0:
-        return hardcoded_roi(camera)
+        return hardcoded_roi(camera, region)
 
     person = predictions[0]
     key_points = person.data
     ls, rs = key_points[5], key_points[6]
 
     if ls[2] < conf_thr or rs[2] < conf_thr:
-        return hardcoded_roi(camera)
+        return hardcoded_roi(camera, region)
                 
     else:
         shoulder_y = (ls[1] + rs[1]) / 2.0

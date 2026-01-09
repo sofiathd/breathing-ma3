@@ -1,4 +1,3 @@
-from src.config import device
 import openpifpaf
 from torchvision.models.segmentation import deeplabv3_resnet50
 import torch
@@ -6,6 +5,8 @@ import torch
 _PIFPAF_PREDICTOR = None
 _DEEPLAB_MODEL = None
 _COTRACKER = None
+
+device = "cpu"
 
 def get_pifpaf_predictor():
     global _PIFPAF_PREDICTOR

@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.signal import coherence
-from preprocess import *
+from src.signals.preprocess import *
 
 def best_lag_seconds(x_ref_z, x_vid_z, fs, max_lag_s=5.0):
     """Utility for best lag seconds."""
